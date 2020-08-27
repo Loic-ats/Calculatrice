@@ -13,32 +13,34 @@
         <h1>Calculatrice</h1>
         <div id="calculator">
             <div id="header">
-                <input type="text" id="number" value="0" autocomplete="off" disabled />
+                <input type="text" id="number" value="" autocomplete="off" disabled />
             </div>
             <div id="body">
 
                 <div id="reset">
-                    <button class="buttons" type=reset>C</button>
+                    <input type="button" name="" class="buttons" onclick=reset() value="C"> </input>
+                    <input type="button" name="" class="buttons" onclick=sup() value="Sup"> </input>
                 </div>
-                <input type="button" name="" class="buttons" onclick="insert (7)" value=" 7"> </input>
-                <input type="button" name="" class="buttons" onclick="insert (8)" value=" 8"> </input>
-                <input type="button" name="" class="buttons" onclick="insert (9)" value="9"> </input>
+
+                <input type="button" name="" class="buttons" onclick="insert (1)" value=" 1"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (2)" value=" 2"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (3)" value="3"> </input>
 
                 <input type="button" name="" class="buttons" onclick="insert ('/')" value="/"> </input>
                 <input type="button" name="" class="buttons" onclick="insert (4)" value="4"> </input>
-                
+
                 <input type="button" name="" class="buttons" onclick="insert (5)" value=" 5"> </input>
                 <input type="button" name="" class="buttons" onclick="insert (6)" value=" 6"> </input>
                 <input type="button" name="" class="buttons" onclick="insert ('*')" value="*"> </input>
-                <input type="button" name="" class="buttons" onclick="insert (1)" value="1"> </input>
-                
-                <input type="button" name="" class="buttons" onclick="insert (2)" value="2"> </input>
-                <input type="button" name="" class="buttons" onclick="insert (3)" value="3"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (7)" value="7"> </input>
+
+                <input type="button" name="" class="buttons" onclick="insert (8)" value="8"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (9)" value="9"> </input>
                 <input type="button" name="" class="buttons" onclick="insert ('-')" value="-"> </input>
                 <input type="button" name="" class="buttons" onclick="insert (0)" value="0"> </input>
-              
+
                 <input type="button" name="" class="buttons" onclick="insert ('.')" value="."> </input>
-                <input type="button" name="" class="buttons" onclick= equal() value="="> </input>
+                <input type="button" name="" class="buttons" onclick=equal() value="="> </input>
                 <input type="button" name="" class="buttons" onclick="insert ('+')" value="+"> </input>
 
             </div>
@@ -63,12 +65,30 @@
         ainsi grace à la fonction eval() on peu évaluer cette expression et */
         function equal() {
 
-            var exp = docutment.getElementById("number").value;
+            var exp = document.getElementById("number").value;
             if (exp) {
                 document.getElementById("number").value = eval(exp);
             }
         }
 
+        /*Je créer la fonction reset, pour réinitialiser ma console */
+        /*Quand je clique sur reset "C" il remplace la console header par du vide 
+        ainsi la consol est réinitialiser et on peut continuer les calculs*/
+
+        function reset() {
+
+            document.getElementById("number").value = "";
+        }
+
+        /* Je créer une fonction Sup pour pouvoir supprimer une erreur de saisie*/
+        /* Pour cela je déclare une variable qui recoit ce qui se trouve dans le champs
+        et je la supprime grace à la fonction pré-définit substring, la fonction va prendre la taille total du string-1,
+        et garder cette valeur donc si le string fait 5 caractére la fonction va afficher 5-1=4 caractere on aura ainsi supprimer le dernier caractère*/
+
+        function sup() {
+            var exp = document.getElementById("number").value;
+            document.getElementById("number").value = exp.substring(0, exp.length-1);
+        }
 
     </Script>
 
