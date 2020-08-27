@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+    <title>Calculatrice</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calculatrice</h1>
+        <div id="calculator">
+            <div id="header">
+                <input type="text" id="number" value="0" autocomplete="off" disabled />
+            </div>
+            <div id="body">
+
+                <div id="reset">
+                    <button class="buttons" type=reset>C</button>
+                </div>
+                <input type="button" name="" class="buttons" onclick="insert (7)" value=" 7"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (8)" value=" 8"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (9)" value="9"> </input>
+
+                <input type="button" name="" class="buttons" onclick="insert ('/')" value="/"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (4)" value="4"> </input>
+                
+                <input type="button" name="" class="buttons" onclick="insert (5)" value=" 5"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (6)" value=" 6"> </input>
+                <input type="button" name="" class="buttons" onclick="insert ('*')" value="*"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (1)" value="1"> </input>
+                
+                <input type="button" name="" class="buttons" onclick="insert (2)" value="2"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (3)" value="3"> </input>
+                <input type="button" name="" class="buttons" onclick="insert ('-')" value="-"> </input>
+                <input type="button" name="" class="buttons" onclick="insert (0)" value="0"> </input>
+              
+                <input type="button" name="" class="buttons" onclick="insert ('.')" value="."> </input>
+                <input type="button" name="" class="buttons" onclick= equal() value="="> </input>
+                <input type="button" name="" class="buttons" onclick="insert ('+')" value="+"> </input>
+
+            </div>
+        </div>
+    </div>
+
+    <Script type="text/javascript">
+
+        /* Je commence par créer ma fonction insert afin d'afficher la valeur du bouton dans mon header*/
+        /*En parametre de ma méthode num, qui correspond à la valeur du bouton*/
+        /* La première étape je récupère mon élément grace à son getter getElementByID() en javascript et je le concatène à l'élément précédent*/
+        /* Au final dans mon header, quand je clic sur un bouton, la valeur de celui-ci j'ajoute au précédent*/
+        function insert(num) {
+
+            document.getElementById("number").value = document.getElementById("number").value + num;
+
+        }
+
+        /*Je créer une fonction equal*/
+        /*Je définit une variable "exp" que je récupére grace à getElementById et j'utilise la fonction pré-définit eval ()*/
+        /*On construit avec la fonction insert une expression arithmétique sous la forme d'une chaîne de caractères, 
+        ainsi grace à la fonction eval() on peu évaluer cette expression et */
+        function equal() {
+
+            var exp = docutment.getElementById("number").value;
+            if (exp) {
+                document.getElementById("number").value = eval(exp);
+            }
+        }
+
+
+    </Script>
+
+</body>
+
+</html>
